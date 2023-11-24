@@ -1,0 +1,57 @@
+{
+  "name": "foodega-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/foodega-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/foodega-api",
+        "main": "apps/foodega-api/src/main.ts",
+        "tsConfig": "apps/foodega-api/tsconfig.app.json",
+        "assets": ["apps/foodega-api/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/foodega-api/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "foodega-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "foodega-api:build:development"
+        },
+        "production": {
+          "buildTarget": "foodega-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/foodega-api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/foodega-api/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
