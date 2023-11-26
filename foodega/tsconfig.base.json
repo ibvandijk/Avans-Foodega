@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@foodega/backend/dto": ["libs/backend/dto/src/index.ts"],
+      "@foodega/backend/features": ["libs/backend/features/src/index.ts"],
+      "@foodega/foodega/common": ["libs/foodega/common/src/index.ts"],
+      "@foodega/foodega/features": ["libs/foodega/features/src/index.ts"],
+      "@foodega/shared/api": ["libs/shared/api/src/index.ts"],
+      "@foodega/shared/util-env": ["libs/shared/util-env/src/index.ts"],
+      "@foodega/uidtod/dto": ["libs/foodega/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
