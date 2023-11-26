@@ -16,7 +16,8 @@
         "tsConfig": "apps/foodega-api/tsconfig.app.json",
         "assets": ["apps/foodega-api/src/assets"],
         "isolatedConfig": true,
-        "webpackConfig": "apps/foodega-api/webpack.config.js"
+        "webpackConfig": "apps/foodega-api/webpack.config.js",
+        "GeneratePackageJson": true
       },
       "configurations": {
         "development": {},
